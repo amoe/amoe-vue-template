@@ -1,0 +1,11 @@
+{
+  "name": "{{ name }}",
+  "version": "0.0.1",
+  "description": "Some package",
+  "author": "{{ author }}",
+  "private": true,
+  "scripts": {
+    "dev": "webpack-dev-server",
+  },
+  "license": "UNLICENSED"
+}
