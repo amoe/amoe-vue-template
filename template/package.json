@@ -5,7 +5,15 @@
   "author": "{{ author }}",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server",
+    "dev": "webpack-dev-server"
   },
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "dependencies": {},
+  "devDependencies": {
+    "vue": "2.5.13",
+    "vue-loader": "13.6.0",
+    "vue-template-compiler": "2.5.13",
+    "webpack": "3.10.0",
+    "webpack-dev-server": "2.9.7"
+  }
 }
