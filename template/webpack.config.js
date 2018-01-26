@@ -30,10 +30,10 @@ module.exports = {
     },
     devtool: 'inline-source-map',
     devServer: {
-        port: 57235,
+        port: {{port}},
         proxy: {
             "/api": {
-                target: "http://localhost:5000",
+                target: "http://localhost:3000",
                 pathRewrite: {"^/api": ""}
             }
         },
