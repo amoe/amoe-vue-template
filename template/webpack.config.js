@@ -1,6 +1,8 @@
 // webpack configuration file
 
 const webpack = require('webpack');
+const loadDefinitions = require('./build/load-definitions');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
     entry: ["./src/entry.ts"],
