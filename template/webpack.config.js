@@ -22,10 +22,15 @@ module.exports = {
                 options: {
                     appendTsSuffixTo: [/\.vue$/]
                 }
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'vue-style-loader',
+                    'css-loader'
+                ]
             }
         ],
-        loaders: [
-        ]
     },
     devtool: 'inline-source-map',
     devServer: {
@@ -40,5 +45,9 @@ module.exports = {
         historyApiFallback: {
             index: 'index.xhtml'
         }
-    }
+    },
+    plugins: [
+        new webpack.DefinePlugin(loadDefinitions()),
+        new VueLoaderPlugin()
+    ]
 };
