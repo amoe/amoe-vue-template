@@ -13,4 +13,4 @@ dist: bundle.js
 .PHONY: dist
 
 bundle.js: src
-	$(WEBPACK)
+	$(WEBPACK) --mode production
