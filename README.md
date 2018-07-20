@@ -4,6 +4,10 @@
 
     vue init amoe/amoe-vue-template my-project
 
+This template provides the ability to store private data as a gitignored file.
+This file is `.private-definitions.json`.  It just contains a simple JSON object
+that should define certain keys.
+
 ## Stack
 
 Vue, Vuex, Webpack, Typescript, Karma, Mocha, Sinon, Chai, Axios
