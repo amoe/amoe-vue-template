@@ -5,7 +5,7 @@ import axios from 'axios';
 const API_PREFIX = "/api";
 
 const actions = {
-    increment(context) {
+    increment(context: any) {
         context.commit('increment')
     }
 };

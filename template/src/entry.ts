@@ -1,25 +1,14 @@
-// entry.ts
-
-import * as log from 'loglevel';
+import Vue from "vue";
+import Element from 'element-ui';
+import ApplicationRoot from "./components/ApplicationRoot.vue";
+import store from './vuex/store';
 import mymodule from './mymodule';
-import ApplicationRoot from './components/ApplicationRoot.vue';
-import Vue from 'vue';
-import Vuex from 'vuex';
-import actions from './actions'
+import * as log from 'loglevel';
+import 'element-ui/lib/theme-chalk/index.css';
+import locale from 'element-ui/lib/locale/lang/en'
 
-Vue.use(Vuex);
+Vue.use(Element, { locale });
 
-const store = new Vuex.Store({
-    state: {
-        count: 0,
-    },
-    mutations: {
-        increment(state) {
-            state.count++;
-        }
-    },
-    actions
-});
 
 log.setLevel('debug');
 
@@ -40,6 +29,7 @@ document.addEventListener("DOMContentLoaded", e => {
     console.log("The answer is: %o", mymodule.meaningOfLife());
 
 });
+
 
 document.addEventListener("DOMContentLoaded", e => {
     const vueInstance = new Vue({
