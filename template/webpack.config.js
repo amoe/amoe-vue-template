@@ -1,38 +1,46 @@
-// webpack configuration file
-
-const webpack = require('webpack');
+var path = require('path')
+var webpack = require('webpack')
 const loadDefinitions = require('./build/load-definitions');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
-    entry: ["./src/entry.ts"],
+    entry: './src/entry.ts',
     output: {
         filename: "bundle.js"
-    },
-    resolve: {
-        extensions: ['.ts', '.js']
     },
     module: {
         rules: [
             {
                 test: /\.vue$/,
-                loader: 'vue-loader',
+                loader: 'vue-loader'
             },
             {
-                test: /\.ts$/,
+                test: /\.tsx?$/,
                 loader: 'ts-loader',
+                exclude: /node_modules/,
                 options: {
-                    appendTsSuffixTo: [/\.vue$/]
+                    appendTsSuffixTo: [/\.vue$/],
                 }
             },
+            // BEGIN rules needed for element-ui
             {
                 test: /\.css$/,
-                use: [
-                    'vue-style-loader',
-                    'css-loader'
-                ]
+                use: ['style-loader', 'css-loader', 'postcss-loader']
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|woff2|svg|svgz)(\?.+)?$/,
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        limit: 10000
+                    }
+                }]
             }
-        ],
+            // END rules needed for element-ui
+        ]
+    },
+    resolve: {
+        extensions: ['.ts', '.js', '.vue']
     },
     devtool: 'inline-source-map',
     devServer: {
@@ -63,4 +71,4 @@ module.exports = {
     performance: {
         hints: false
     }
-};
+}
